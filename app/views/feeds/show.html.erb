@@ -1,0 +1,24 @@
+
+
+Search Parameter: <%= params[:name] %>
+<br/><br/>
+Number of matches: <%= @feeds.length %>
+
+<br/>----------
+<br/>
+
+
+<% @feeds.each do |rss| %>
+  <% rss.each do |entry| %>
+
+    <%= entry.title %> <%= link_to 'Read more...', entry.url %> <br/>
+    <div class="content">
+      <%= entry.summary %>
+      <br/>
+    </div><br/><br/>
+  <% end %>
+  -----------------------
+  -----------------------
+<% end %>
+<%= link_to 'Edit', edit_feed_path(@feed) %> |
+<%= link_to 'Back', feeds_path %>
