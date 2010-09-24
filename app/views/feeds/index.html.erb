@@ -1,15 +1,15 @@
 <h1>Feeds source</h1>
 
 <table>
-  
-  <% form_tag feed_path(@feeds.first), :method => 'get' do %>
-    <%= text_field_tag :name, params[:name] %>
-    <%= text_field_tag :keywordA, params[:keywordA] %>
-    <%= text_field_tag :keywordB, params[:keywordB] %>
-    <%= submit_tag 'Search', :name => nil %>
-  <% end %>
-
 <% @feeds.each do |feed| %>
+  <tr>
+    <% form_tag feed_path(feed), :method => 'get' do %>
+      <td><%= text_field_tag :name, params[:name] %>
+      <%= text_field_tag :keywordA, params[:keywordA] %>
+      <%= text_field_tag :keywordB, params[:keywordB] %></td>
+      <td><%= submit_tag 'Search', :name => nil %></td>
+    <% end %>
+  </tr>
   <tr>
     <td><%= feed.url_link %></td>
     <td></td>
