@@ -6,7 +6,7 @@
   <script language="Javascript" type="text/javascript">
   //<![CDATA[
 
-  google.load("search", "1");
+  google.load("search", "1", {"language":"en"});
 
   function OnLoad() {
     // Create a search control
@@ -15,7 +15,6 @@
     // Add in a full set of searchers
     var localSearch = new google.search.LocalSearch();
     searchControl.addSearcher(new google.search.NewsSearch());
-    searchControl.addSearcher(localSearch);
 
     // Set the Local Search center point
     localSearch.setCenterPoint("San Francisco, CA");
