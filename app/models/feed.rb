@@ -15,15 +15,15 @@ class Feed < ActiveRecord::Base
     matches_name = single_match(name)
     matches_param1 = single_match(param1)
     matches_param2 = single_match(param2)
-    #matches_name.each do |entry|
-    #  if matches_param1.include?(entry)
-    #    matches_name_param1 << entry
-    #  end
-    #  if matches_param2.include?(entry)
-    #    matches_name_param2 << entry
-    #  end
-    #end
-    return [matches_param1, matches_param2]
+    matches_name.each do |entry|
+      if matches_param1.include?(entry)
+        matches_name_param1 << entry
+      end
+      if matches_param2.include?(entry)
+        matches_name_param2 << entry
+      end
+    end
+    return [matches_name_param1, matches_name_param2, matches_param1, matches_param2]
   end
   
   def single_match(param)
