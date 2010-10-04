@@ -1,7 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :rsses
-
-  map.resources :feeds
+  
+  map.resources :parameters
+  map.resources :feeds, :only => [:index, :new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
 

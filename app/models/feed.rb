@@ -9,9 +9,10 @@ class Feed < ActiveRecord::Base
     Feedzirra::Feed.fetch_and_parse(url_link)
   end
   
-  def get_matches(name, param1, param2)
-    matches_name_param2 = []
-    matches_name_param1 = []
+  def get_matches(param_entry)
+    name = param_entry[0] || " "
+    param1 = param_entry[1] || " "
+    param2 = param_entry[2] || " "
     rss_entries = parsing
     matches_name = find_single_match(name, rss_entries)
     matches_param1 = find_single_match(param1, rss_entries)
