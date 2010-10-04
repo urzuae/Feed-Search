@@ -48,3 +48,9 @@ table.feed_sources {
 table.feed_sources td {
   padding: 10px;
 }
+
+.rss {
+  height: 16px;
+  width: 16px;
+  vertical-align: top;
+}
