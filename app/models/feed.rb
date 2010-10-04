@@ -10,13 +10,10 @@ class Feed < ActiveRecord::Base
   end
   
   def get_matches(param_entry)
-    name = param_entry[0] || " "
-    param1 = param_entry[1] || " "
-    param2 = param_entry[2] || " "
     rss_entries = parsing
-    matches_name = find_single_match(name, rss_entries)
-    matches_param1 = find_single_match(param1, rss_entries)
-    matches_param2 = find_single_match(param2, rss_entries)
+    matches_name = find_single_match(param_entry.main, rss_entries)
+    matches_param1 = find_single_match(param_entry.keyword_a, rss_entries)
+    matches_param2 = find_single_match(param_entry.keyword_b, rss_entries)
     matches_name_param1 = double_match(matches_name, matches_param1)
     matches_name_param2 = double_match(matches_name, matches_param2)
     return [matches_name_param1, matches_name_param2, matches_param1, matches_param2]
